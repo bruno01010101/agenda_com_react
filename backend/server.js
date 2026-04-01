@@ -6,8 +6,9 @@ import erroMiddleware from './src/middleware/erros.js';
 
 const app = express();
 
-app.use(express.json()) // transforma JSON que vem na requisição em objeto javascript
+app.use(express.json()) // transforma JSON que vem na requisição em objeto javascript, retorna um middleware
 app.use(rotas);
+app.use(erroMiddleware)
 
 mongoose.connect(process.env.CONNECTIONSTRING)
     .then(() => {
