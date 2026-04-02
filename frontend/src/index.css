@@ -1,0 +1,10 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+:root{
+    --cinzinha: #e8e1f4;
+    --laranja_boiola: #f39c12;
+}
