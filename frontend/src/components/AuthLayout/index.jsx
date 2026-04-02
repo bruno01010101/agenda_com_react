@@ -1,21 +1,18 @@
 import { Link, Outlet } from "react-router"
+import styles from "./authlayout.module.css"
+import Input from "../Ui/Input"
 
 export default function AuthLayout(){
     return(
-        <>
-            <header>
-                <h1>Agenda digital</h1>
+        <main className={styles.main}>
+            <div className={styles.card}>
+                <h1 className={styles.h1}>Login</h1>
 
-                <nav>
-                    <p>olá manito</p>
-                </nav>
-            </header>
-
-            <Outlet />
-
-            <footer>
-                <p>Desenvolvido por <a href="https://www.linkedin.com/in/bruno-dos-santos-282a583a8/" target="blank">Bruno dos santos</a></p>
-            </footer>
-        </>
+                <div className={styles.gap}>
+                    <Input nome="Email" placeholder="Digite o seu email"/>
+                    <Input nome="Senha" placeholder="Digite a sua senha" type="password" />
+                </div>
+            </div>
+        </main>
     )
 }

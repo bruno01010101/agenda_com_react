@@ -1,0 +1,30 @@
+.main{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+    background-color: var(--cinzinha);   
+}
+
+.card{
+    width: 600px;
+    height: 600px;
+    padding: 30px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.h1{
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    padding: 20px 0px;
+}
+
+.gap{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
