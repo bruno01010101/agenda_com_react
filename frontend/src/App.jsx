@@ -13,7 +13,7 @@ function App() {
         <Route path="/" element={<AppLayout />}> 
           <Route path="" element={<Home />}/>
           <Route path="create" element={<CreateContact />}/>
-          <Route path="edit" element={<EditContact />} />
+          <Route path="edit/:id" element={<EditContact />} />
         </Route>
         <Route path="/auth/">
           <Route path="login" element={<AuthLayout titulo="Login" txtBtn="Logar" flag={true} />}  />
