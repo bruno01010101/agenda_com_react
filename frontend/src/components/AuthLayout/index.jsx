@@ -18,7 +18,7 @@ export default function AuthLayout({titulo, txtBtn, flag}){
                         <label htmlFor="check">Mostrar Senha</label>
                     </div>
 
-                    <Botao text={txtBtn}/>
+                    <Botao text={txtBtn} size="big"/>
                     <TextLogin isLogin={flag} />
                 </div>
             </div>
