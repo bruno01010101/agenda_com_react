@@ -10,18 +10,20 @@ export default function AppLayout(){
                 </div>
 
                 <ul className={styles.meio}>
+                    <li><Link to="/create">Criar contato</Link></li>
+                    <li> <Link to="/">Página inicial</Link></li>
                     <li><a href="">Sobre </a></li>
-                    <li><a href=""> Nada a ve msm</a> </li>
-                    <li> <a href="">Enchendo linguiça</a></li>
                 </ul>
 
                 <div className={styles.linksDireita}>
                     <Link to="/auth/login" className={styles.login}>Fazer Login</Link>
-                    <Link to="/auth/login" className={styles.cadastro}>Cadastrar</Link>
+                    <Link to="/auth/cadastro" className={styles.cadastro}>Cadastrar</Link>
                 </div>
             </header>
 
-            <Outlet />
+            <main className={styles.filhos}>
+                <Outlet />
+            </main>
 
             <footer className={styles.rodape}>
                 <p>Desenvolvido por <a href="https://www.linkedin.com/in/bruno-dos-santos-282a583a8/" target="blank">Bruno dos santos</a></p>

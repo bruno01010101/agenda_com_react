@@ -1,0 +1,17 @@
+.btn{
+    font-family: "Poppins", sans-serif;
+    color: white;
+    background-color: var(--laranja_boiola);
+    font-weight: bold;
+    font-size: 20px;
+    padding: 20px;
+    border: none;
+    border: 2px solid transparent;
+}
+
+.btn:hover{
+    border-color: black;
+    opacity: 0.8;
+    background-color: rgb(233, 171, 57);
+    transition: all 0.5s ease-in;
+}

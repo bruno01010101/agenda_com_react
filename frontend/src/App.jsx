@@ -3,8 +3,6 @@ import AppLayout from "./components/AppLayout"
 import Home from "./components/Home"
 import CreateContact from "./components/CreateContact"
 import EditContact from "./components/EditContact"
-import Login from "./components/Login"
-import Cadastro from "./components/Cadastro"
 import AuthLayout from "./components/AuthLayout"
 
 function App() {
@@ -17,9 +15,9 @@ function App() {
           <Route path="create" element={<CreateContact />}/>
           <Route path="edit" element={<EditContact />} />
         </Route>
-        <Route path="/auth" element={<AuthLayout />}>
-          <Route path="login" element={<Login />} />
-          <Route path="cadastro" element={<Cadastro />} />
+        <Route path="/auth/">
+          <Route path="login" element={<AuthLayout titulo="Login" txtBtn="Logar" flag={true} />}  />
+          <Route path="cadastro" element={<AuthLayout titulo="Cadastro" txtBtn="Cadastrar" flag={false} />} />
         </Route>
       </Routes>
     </BrowserRouter>

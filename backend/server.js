@@ -3,8 +3,14 @@ import rotas from './src/routes/rotas.js';
 import 'dotenv/config';
 import mongoose from 'mongoose';
 import erroMiddleware from './src/middleware/erros.js';
+import cors from "cors";
 
 const app = express();
+
+app.use(cors({
+  origin: "http://localhost:5173",
+  credentials: true
+}));
 
 app.use(express.json()) // transforma JSON que vem na requisição em objeto javascript, retorna um middleware
 app.use(rotas);
