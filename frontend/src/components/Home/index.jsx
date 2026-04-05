@@ -5,20 +5,24 @@ import { Link } from "react-router"
 export default function Home(){
     const [contatos, setContatos] = useState([])
     const api = import.meta.env.VITE_API_URL;
+    const token = localStorage.getItem("token")
 
     useEffect(() => {
         //utilize .env pois a url em produção será outra. A maneira de utilizar .env no front também muda
         
-        fetch(`${api}/contatos`)
+        fetch(`${api}/contatos`, {
+            headers: { "Authorization": `Bearer ${token}` }
+        })
         .then(response => response.json())
         .then(data => setContatos(data.contatos))
         .catch(() => console.log('deu erro'))
-    }, [])
+    }, [token, api])
 
     const handleDelete = (contato) =>{
         fetch(`${api}/contatos/${contato._id}`,{
             headers:{
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
             },
             method: "DELETE"
         })

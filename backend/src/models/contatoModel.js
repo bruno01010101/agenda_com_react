@@ -21,6 +21,11 @@ const contatoSchema = new mongoose.Schema({
         minlength: [5, "Um numero de telefone teve ter mais de 4 carcteres"],
         match: [/^\d+$/, "Apenas números são permitidos"],
         trim: true
+    },
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "usuario",
+        required: true
     }
 }, {versionKey: false})
 
