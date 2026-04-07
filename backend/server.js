@@ -1,7 +1,7 @@
 import express from "express";
 import routes from "./rotas/routes.js";
 import mongoose from "mongoose";
-import "dotenv/config"
+import "dotenv/config";
 
 const app = express();
 const string = process.env.CONNECTIONSTRING
