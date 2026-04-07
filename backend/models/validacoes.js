@@ -8,7 +8,7 @@ export default function validacoes(dados){
     if (email && !validator.isEmail(email)){
         throw new Error("Digíte um email válido")
     }
-    if(telefone && !validator.isNumeric(Number(telefone))){
+    if(telefone && !validator.isNumeric(telefone)){
         throw new Error("Digíte um telefone válido")
     }
 }

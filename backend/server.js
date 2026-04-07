@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 import "dotenv/config"
 
 const app = express();
-const string = process.env.CONNECTION_STRING
+const string = process.env.CONNECTIONSTRING
 
 app.use(express.json()) // converte json vindo da req em objeto javascript
 app.use(routes);
