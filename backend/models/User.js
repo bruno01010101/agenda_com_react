@@ -8,12 +8,10 @@ const UserSchema =  new mongoose.Schema({
     },
     senha: {
         type: String,
-        maxlength: [90, "Senha ultrapassa o limite estabelecido de caracteres"],
-        minlength: [30, "Senha não alcança o limite minimo estabelecido de caracteres"],
         required: true
     },
     
-})
+}, {versionKey: false})
 
-const userModel = ("usuarios", UserSchema)
+const userModel = mongoose.model("usuarios", UserSchema)
 export default userModel;

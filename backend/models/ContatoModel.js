@@ -5,9 +5,10 @@ const contatoSchema = new mongoose.Schema({
     telefone: { type: String },
     user: { 
         type: mongoose.Schema.Types.ObjectId,
-        ref : "Usuario"
+        ref : "Usuario",
+        required: true
     }
-})
+}, {versionKey: false})
 
 const contatoModel = mongoose.model('contatos', contatoSchema)
 export default contatoModel

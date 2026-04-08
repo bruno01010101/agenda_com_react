@@ -4,7 +4,7 @@ import validator from "validator"
 export default function validacoes(dados){
     const {email, telefone, nome} = dados
     if(!nome || nome.length < 3) throw new Error("Nome é obrigatório");
-    if(nome.length > 100) throw new Error("Nome muito grande")
+    if(nome.length > 50) throw new Error("Nome muito grande")
     if (email && !validator.isEmail(email)){
         throw new Error("Digíte um email válido")
     }
