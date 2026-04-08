@@ -15,7 +15,7 @@ export default function auntenticacao(req, res, next){
 
     //não precisa de if !payload pois em caso de false o .verify já lança um erro.
     const payload = jsonwebtoken.verify(token, process.env.SECRET);
-
+    // usando verify também é extraido o id, que é possível ser capturado
     const id = payload.id
     req.userID = id
 

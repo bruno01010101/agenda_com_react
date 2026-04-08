@@ -19,9 +19,10 @@ async function buscaContatos(req, res, next){
 
 async function criarContatos(req, res, next){
     try{
+        const {nome, email, telefone} = req.body
         validacoes(req.body)
-        // falta criar esses objetos
-        await contatoModel.create(req.body)
+        const usuario = {nome, email, telefone, user: req.userID}
+        await contatoModel.create(usuario)
         res.status(200).json({
             message: "Contato criado com sucesso"
         })
@@ -31,10 +32,11 @@ async function criarContatos(req, res, next){
 }
 
 async function editarContatos(req, res, next){
-    const id = req.params.id;
     try{
+        const id = req.params.id;
+        const {nome, email, telefone} = req.body
         validacoes(req.body)
-        const contato =  await contatoModel.findByIdAndUpdate(id, req.body);
+        const contato =  await contatoModel.findOneAndUpdate({_id: id, user: req.userID}, {nome, email, telefone});
         if(!contato){
             return res.status(404).json({
                 message: "Não foi possível encontrar nenhum contato"
@@ -49,10 +51,9 @@ async function editarContatos(req, res, next){
 }
 
 async function excluirContatos(req, res, next){
-    const id = req.params.id;
-
     try{
-        await contatoModel.findByIdAndDelete(id)
+        const id = req.params.id;
+        await contatoModel.findOneAndDelete({_id: id, user: req.userID})
         res.status(200).json({
             message: "Contato deletado com sucesso"
         })
