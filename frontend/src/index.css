@@ -1,0 +1,12 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: var(--main_font);
+}
+:root{
+    --laranja: #ffa94d;
+    --cinzinha: #e8e1f4;
+    --main_font: "Montserrat", sans-serif;
+    --secondary_font: 'Poppins', sans-serif;
+}
