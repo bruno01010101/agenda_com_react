@@ -65,8 +65,8 @@
 }
 
 .orange:hover{
-    opacity: 0.5;
-    transition: all ease 0.5s;
+    background-color: transparent;
+    transition: all ease 0.9s;
 }
 
 .gray{

@@ -4,6 +4,7 @@ import AuthLayout from "./components/AuthLayout"
 import Home from "./components/Home"
 import CreateContact from "./components/Create"
 import EditContact from "./components/EditContact"
+import Form from "./components/Form"
 
 function App() {
 
@@ -16,8 +17,8 @@ function App() {
           <Route path="edit" element={< EditContact/>} />
         </Route>
         <Route path="/auth/" element={<AuthLayout/>}>
-          <Route path="login" element={<AuthLayout />} />
-          <Route path="register" element={<AuthLayout />} />
+          <Route path="login" element={<Form title="Login" btnText="Logar" isLogin={true} />}/>
+          <Route path="register" element={<Form title="Cadastro" btnText="Cadastrar" isLogin={false} />} />
         </Route>
       </Routes>
     </BrowserRouter>
