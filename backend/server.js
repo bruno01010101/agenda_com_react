@@ -3,9 +3,15 @@ import routes from "./rotas/routes.js";
 import mongoose from "mongoose";
 import "dotenv/config";
 import midErro from "./middlewares/Erro.js";
+import cors from "cors"
 
 const app = express();
 const string = process.env.CONNECTIONSTRING
+
+app.use(cors({
+    origin: "http://localhost:5173",
+    credentials: true
+}));
 
 app.use(express.json()) // converte json vindo da req em objeto javascript
 app.use(routes);
