@@ -3,11 +3,17 @@ import Button from "../UI/Button";
 import Input from "../UI/Input";
 import styles from "./form.module.css";
 import { Link } from "react-router"
+import { cadastro, login } from "../AuthLayout/auth";
 export default function Form({title, btnText, isLogin}){
     const [email, setEmail] = useState('')
     const [senha, setSenha] = useState('')
     const handleClick = (email, senha) => {
-
+        if(isLogin){
+            login(email, senha)
+        }
+        if (!isLogin) {
+            cadastro(email, senha)
+        }
     }
 
    return(

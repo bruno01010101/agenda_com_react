@@ -1,17 +1,18 @@
 async function cadastro(email, senha){
-    const url = import.meta.env.API_URL
+    const url = import.meta.env.VITE_API_URL
+    console.log(email, senha)
     fetch(`${url}/register`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({email, senha})
-    }).then(async (response) => {     // o response convertido para json não tem mais o .ok
+    }).then(async (response) => {
         if(!response.ok){
-            const erroData = await response.json()
-            throw new Error(erroData.message)
+            const dataErro = response.json()
+            console.log(dataErro.message) 
         }
-        return response.json() // senão passar pelo erro, apenas vai retornar o response.json diretamente
+        return response.json()
     })
     .then((data) => {
         console("Sucesso: ", data.message)
@@ -21,4 +22,8 @@ async function cadastro(email, senha){
     })
 }
 
-export {cadastro}
+
+async function login(email, senha) {
+    
+}
+export {cadastro, login}
