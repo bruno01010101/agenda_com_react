@@ -16,7 +16,7 @@ async function cadastro(email, senha){
         return response.json()
     })
     .then((data) => {
-        console.log("Sucesso: ", data.message)
+        return { success: true, message: data.message }
 
     })
     .catch((err) => {
@@ -34,8 +34,9 @@ async function login(email, senha) {
         }, {
             headers: { 'Content-Type': 'application/json' }
         })
-        const token = await req.data.token
-        localStorage.setItem("token", token)
+        const data = await req.data
+        localStorage.setItem("token", data.token)
+        return {success: false, message: data.message}
     }catch(err){
         throw new Error(err.message)
     }

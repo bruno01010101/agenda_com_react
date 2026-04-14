@@ -14,24 +14,30 @@ export default function Form({title, btnText, isLogin}){
             login(email, senha)
         }
         if (!isLogin) {
-            cadastro(email, senha)
-            navigate("/auth/login")
+            const dados = cadastro(email, senha)
+            if(dados.success){
+                navigate("/", {
+                    state: {
+                        message: dados.message + " ,Clique no botão acima para fazer login",
+                        type: "success"
+                    }
+                })
+            }else{
+                navigate("/", {
+                    state: {
+                        message: dados.message,
+                        type: "error"
+                    }
+                })
+            }
         }
-    }
-
-    function mudaEmail(e){
-        setEmail(e.target.value)
-    }
-
-    function mudaSenha(e){
-        setSenha(e.target.value)
     }
 
    return(
     <div className={styles.form}>
         <h1 className={styles.titulo}>{title}</h1>
-        <Input titulo="Email" placeholder="Digite o seu email" value={email} handleChange={(e) => mudaEmail(e)} />
-        <Input titulo="Senha" placeholder="Digite a sua senha email" value={senha} handleChange={(e) => mudaSenha(e)} />
+        <Input titulo="Email" placeholder="Digite o seu email" value={email} handleChange={(e) => setEmail(e.target.value)} />
+        <Input titulo="Senha" placeholder="Digite a sua senha email" value={senha} handleChange={(e) => setSenha(e.target.value)} />
         <div className={styles.showpass}>
             <input type="checkbox" name="showPassword" id="showPassword" />
             <label htmlFor="showPassword">Mostrar Senha</label>

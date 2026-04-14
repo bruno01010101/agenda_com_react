@@ -1,7 +1,20 @@
-.error{
+.error, .success{
+    font-weight: bold;
+    font-size: 0.9em;
+    padding: 5px;
+    width: 300px;
+    font-family: var(--main_font);
+    text-align: center;
+}
 
+.error{
+    color: rgb(173, 40, 58);
+    border: 2px solid rgb(153, 42, 57);
+    background-color: rgb(235, 140, 152);
 }
 
 .success{
-    
+    color: rgb(20, 131, 20);
+    border: 2px solid rgb(20, 131, 20);
+    background-color: rgb(124, 241, 124);
 }
