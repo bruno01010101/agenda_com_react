@@ -1,6 +1,7 @@
+import axios from "axios"
+
 async function cadastro(email, senha){
     const url = import.meta.env.VITE_API_URL
-    console.log(email, senha)
     fetch(`${url}/register`, {
         method: "POST",
         headers: {
@@ -15,7 +16,8 @@ async function cadastro(email, senha){
         return response.json()
     })
     .then((data) => {
-        console("Sucesso: ", data.message)
+        console.log("Sucesso: ", data.message)
+
     })
     .catch((err) => {
         throw new Error(err.message)
@@ -24,6 +26,18 @@ async function cadastro(email, senha){
 
 
 async function login(email, senha) {
-    
+    const url = import.meta.env.VITE_API_URL
+    try{
+        const req = await axios.post(`${url}/login`,{
+            email: email,
+            senha: senha
+        }, {
+            headers: { 'Content-Type': 'application/json' }
+        })
+        const token = await req.data.token
+        localStorage.setItem("token", token)
+    }catch(err){
+        throw new Error(err.message)
+    }
 }
 export {cadastro, login}
