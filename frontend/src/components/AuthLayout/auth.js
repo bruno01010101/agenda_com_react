@@ -2,7 +2,8 @@ import axios from "axios"
 
 async function cadastro(email, senha){
     const url = import.meta.env.VITE_API_URL
-    fetch(`${url}/register`, {
+    
+    return fetch(`${url}/register`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -10,8 +11,8 @@ async function cadastro(email, senha){
         body: JSON.stringify({email, senha})
     }).then(async (response) => {
         if(!response.ok){
-            const dataErro = response.json()
-            console.log(dataErro.message) 
+            const dataErro = await response.json()
+            return { success: false, message: dataErro.message }
         }
         return response.json()
     })
@@ -20,10 +21,9 @@ async function cadastro(email, senha){
 
     })
     .catch((err) => {
-        throw new Error(err.message)
+        return { success: false, message: err.message }
     })
 }
-
 
 async function login(email, senha) {
     const url = import.meta.env.VITE_API_URL
@@ -36,9 +36,9 @@ async function login(email, senha) {
         })
         const data = await req.data
         localStorage.setItem("token", data.token)
-        return {success: false, message: data.message}
+        return {success: true, message: data.message}
     }catch(err){
-        throw new Error(err.message)
+        return { success: false, message: err.message }
     }
 }
 export {cadastro, login}

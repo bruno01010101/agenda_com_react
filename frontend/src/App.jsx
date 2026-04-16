@@ -14,7 +14,7 @@ function App() {
         <Route path="/" element={<HomeLayout />}>
           <Route path="" element={<Home />} />
           <Route path="create" element={<CreateContact />} />
-          <Route path="edit" element={< EditContact/>} />
+          <Route path="edit/:id" element={< EditContact/>} />
         </Route>
         <Route path="/auth/" element={<AuthLayout/>}>
           <Route path="login" element={<Form title="Login" btnText="Logar" isLogin={true} />}/>

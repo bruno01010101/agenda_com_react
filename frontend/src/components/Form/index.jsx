@@ -9,16 +9,31 @@ export default function Form({title, btnText, isLogin}){
     const [senha, setSenha] = useState('')
     const navigate = useNavigate()
 
-    const handleClick = (email, senha) => {
+    const handleClick = async (email, senha) => {
         if(isLogin){
-            login(email, senha)
-        }
-        if (!isLogin) {
-            const dados = cadastro(email, senha)
+            const dados = await login(email, senha)
             if(dados.success){
                 navigate("/", {
                     state: {
-                        message: dados.message + " ,Clique no botão acima para fazer login",
+                        message: dados.message,
+                        type: "success"
+                    }
+                })
+            }else{
+                navigate("/", {
+                    state: {
+                        message: dados.message,
+                        type: "error"
+                    }
+                })
+            }
+        }
+        if (!isLogin) {
+            const dados = await cadastro(email, senha)
+            if(dados.success){
+                navigate("/", {
+                    state: {
+                        message: dados.message,
                         type: "success"
                     }
                 })

@@ -4,3 +4,35 @@
     align-items: center;
     padding-top: 60px;
 }
+
+.contato{
+    max-width: 800px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows: 30px;
+    justify-items: center;
+    align-items: center;
+}
+
+.buttons{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2px;
+}
+
+.edit, .remove{
+    width: 30px;
+    cursor: pointer;
+}
+.edit{color: rgb(37, 219, 189);}
+.remove{color: rgba(255, 0, 0, 0.685);}
+.espaco{margin-bottom: 30px;}
+.top{margin-bottom: 20px;}
+
+.third{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
