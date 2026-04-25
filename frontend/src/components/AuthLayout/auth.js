@@ -12,16 +12,16 @@ async function cadastro(email, senha){
     }).then(async (response) => {
         if(!response.ok){
             const dataErro = await response.json()
-            return { success: false, message: dataErro.message }
+            return { success: "error", message: dataErro.message }
         }
         return response.json()
     })
     .then((data) => {
-        return { success: true, message: data.message }
+        return { success: "success", message: data.message }
 
     })
     .catch((err) => {
-        return { success: false, message: err.message }
+        return { success: "error", message: err.response?.data.message }
     })
 }
 
@@ -36,9 +36,9 @@ async function login(email, senha) {
         })
         const data = await req.data
         localStorage.setItem("token", data.token)
-        return {success: true, message: data.message}
+        return {success: "success", message: data.message}
     }catch(err){
-        return { success: false, message: err.message }
+        return { success: "error", message: err.response?.data.message }
     }
 }
 export {cadastro, login}

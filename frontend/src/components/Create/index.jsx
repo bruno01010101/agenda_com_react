@@ -15,10 +15,10 @@ export default function CreateContact(){
         try{
             const token = localStorage.getItem("token")
             if(!token){
-                navigate('/', {
+                return navigate('/', {
                     state: {
                         message: "É necessário estar logado para criar um contato",
-                        type: "Error"
+                        type: "error"
                     }
                 })
             }
@@ -41,7 +41,7 @@ export default function CreateContact(){
         }catch(err){
             navigate('/', {
                 state: {
-                    message: err.message,
+                    message: err.response?.data.message,
                     type: "error"
                 }
             })

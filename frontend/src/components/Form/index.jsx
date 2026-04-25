@@ -16,7 +16,7 @@ export default function Form({title, btnText, isLogin}){
                 navigate("/", {
                     state: {
                         message: dados.message,
-                        type: "success"
+                        type: dados.success
                     }
                 })
             }else{
