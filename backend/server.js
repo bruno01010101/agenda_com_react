@@ -19,7 +19,7 @@ app.use(routes);
 app.use(midErro)
 
 mongoose.connect(string).then(() =>  {
-    app.listen(PORT, () => {
+    app.listen(port, () => {
         console.log('servidor ao vivo na url http://localhost:3000')
     })
 }).catch((err) => console.log(`Erro ao conectar com o servidor: ${err}`) )
