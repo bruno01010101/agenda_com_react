@@ -7,6 +7,7 @@ import cors from "cors"
 
 const app = express();
 const string = process.env.CONNECTIONSTRING
+const port = process.env.PORT || 3000
 
 app.use(cors({
     origin: "http://localhost:5173",
@@ -18,7 +19,7 @@ app.use(routes);
 app.use(midErro)
 
 mongoose.connect(string).then(() =>  {
-    app.listen(3000, () => {
+    app.listen(PORT, () => {
         console.log('servidor ao vivo na url http://localhost:3000')
     })
 }).catch((err) => console.log(`Erro ao conectar com o servidor: ${err}`) )
