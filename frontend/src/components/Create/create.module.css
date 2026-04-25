@@ -18,3 +18,9 @@
 .edit{
     padding: 10px;
 }
+
+@media screen and (max-width: 576px) {
+    .principal{
+        width: 300px;
+    }
+}

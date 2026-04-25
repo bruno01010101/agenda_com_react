@@ -10,7 +10,7 @@ const string = process.env.CONNECTIONSTRING
 const port = process.env.PORT || 3000
 
 app.use(cors({
-    origin: "*",
+    origin: "https://agenda-com-react.onrender.com",
     credentials: true
 }));
 
