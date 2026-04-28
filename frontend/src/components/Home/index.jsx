@@ -18,14 +18,13 @@ export default function Home() {
     const navigate = useNavigate()
 
     useEffect(() => {
-        const Data = async () => {
+        const fetchData = async () => {
             if (message) {
                 setMensagem(message)
-                const timer = setTimeout(() => {
+                setTimeout(() => {
                     setMensagem(null)
                     navigate(location.pathname, { replace: true })
-                }, 3000);
-                return () => clearTimeout(timer);
+                }, 5000);
             }
             try {
                 const token = localStorage.getItem("token")
@@ -40,7 +39,7 @@ export default function Home() {
                 console.log(err)
             }
         }
-        Data();
+        fetchData();
     }, [message, url])
 
     const excluir = async (id) => {
