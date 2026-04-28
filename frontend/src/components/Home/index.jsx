@@ -1,6 +1,6 @@
 import styles from "./home.module.css";
 import Message from "../message";
-import { useLocation, useNavigate } from "react-router";
+import { useLocation } from "react-router";
 import { useEffect, useState } from "react";
 import { MdOutlineEdit } from "react-icons/md";
 import { RiDeleteBin6Fill } from "react-icons/ri";
@@ -15,7 +15,6 @@ export default function Home() {
     const url = import.meta.env.VITE_API_URL
     const [mensagem, setMensagem] = useState();
     const [contatos, setContatos] = useState([]);
-    const navigate = useNavigate()
 
     useEffect(() => {
         const fetchData = async () => {
@@ -23,7 +22,7 @@ export default function Home() {
                 setMensagem(message)
                 setTimeout(() => {
                     setMensagem(null)
-                    navigate(location.pathname, { replace: true })
+                    window.history.replaceState({}, document.title);
                 }, 5000);
             }
             try {
